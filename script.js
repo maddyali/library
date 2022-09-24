@@ -5,7 +5,13 @@ const form = document.querySelector("#form");
 const tableBody = document.querySelector("#tableBody");
 
 // Storage for book objects
-let library = [];
+let library = [
+  // {
+  //   title: "Ex title",
+  //   author: "Ex author",
+  //   readStatus: "Read",
+  // },
+];
 
 // Constructor to make new books
 function Book(title, author, readStatus) {
@@ -28,5 +34,16 @@ function addBookToLibrary() {
   if (title.value === "" || author.value === "") return;
   const newBook = new Book(title.value, author.value, readStatus.value);
   library.push(newBook);
+  renderBook(newBook);
   console.log(library);
+}
+
+// Add a table row with data: book, author, read btn, delete btn.
+function renderBook(book) {
+  const row = tableBody.insertRow();
+  row.innerHTML = `
+  <td>${book.title}</td>
+  <td>${book.author}</td>
+  <td><button class="btn" id="statusBtn" type="button">${book.readStatus}</button></td>
+  <td><button class="btn" id="deleteBtn" type="button">Delete</button></td> `;
 }
