@@ -46,25 +46,35 @@ function renderBook() {
     row.innerHTML = `
     <td>${book.title}</td>
     <td>${book.author}</td>
-    <td><button class="btn" id="statusBtn" type="button">${book.readStatus}</button></td>
-    <td><button class="btn deleteBtn" id="deleteBtn" type="button"
+    <td><button class="btn statusBtn" type="button" data-bookId="${index}">${book.readStatus}</button></td>
+    <td><button class="btn deleteBtn" type="button"
     data-bookId="${index}">Delete</button></td> `;
   });
 }
 renderBook();
 
 tableBody.addEventListener("click", (e) => {
-  const currentTitle = e.target.parentNode.parentNode.childNodes[1].textContent;
   if (e.target.textContent === "Delete") {
-    const currentBookId = e.target.attributes[3].textContent;
-    if (confirm(`Are you sure you want to delete? ${currentTitle}`)) {
+    const currentTitle =
+      e.target.parentNode.parentNode.childNodes[1].textContent;
+    const currentBookId = e.target.attributes[3];
+    if (confirm(`Sure you want to delete? ${currentTitle}`)) {
       deleteBook(currentBookId);
-      renderBook();
     }
-    console.log(library);
   }
+  if (e.target.classList.contains("statusBtn")) {
+    const currentBookId = e.target.attributes[2].nodeValue;
+    changeStatus(currentBookId);
+  }
+  renderBook();
 });
 
 function deleteBook(bookId) {
   library.splice(bookId, 1);
+}
+
+function changeStatus(bookId) {
+  if (library[bookId].readStatus === "Read")
+    library[bookId].readStatus = "Not read";
+  else library[bookId].readStatus = "Read";
 }
