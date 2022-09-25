@@ -40,13 +40,31 @@ function addBookToLibrary() {
 
 // Add a table row with data: book, author, read btn, delete btn.
 function renderBook() {
-  const row = tableBody.insertRow();
+  tableBody.innerHTML = "";
   library.forEach((book, index) => {
+    const row = tableBody.insertRow(-1);
     row.innerHTML = `
-  <td>${book.title}</td>
-  <td>${book.author}</td>
-  <td><button class="btn" id="statusBtn" type="button">${book.readStatus}</button></td>
-  <td><button class="btn deleteBtn" id="deleteBtn" type="button"
-  data-bookId="${index}">Delete</button></td> `;
+    <td>${book.title}</td>
+    <td>${book.author}</td>
+    <td><button class="btn" id="statusBtn" type="button">${book.readStatus}</button></td>
+    <td><button class="btn deleteBtn" id="deleteBtn" type="button"
+    data-bookId="${index}">Delete</button></td> `;
   });
+}
+renderBook();
+
+tableBody.addEventListener("click", (e) => {
+  const currentTitle = e.target.parentNode.parentNode.childNodes[1].textContent;
+  if (e.target.textContent === "Delete") {
+    const currentBookId = e.target.attributes[3].textContent;
+    if (confirm(`Are you sure you want to delete? ${currentTitle}`)) {
+      deleteBook(currentBookId);
+      renderBook();
+    }
+    console.log(library);
+  }
+});
+
+function deleteBook(bookId) {
+  library.splice(bookId, 1);
 }
