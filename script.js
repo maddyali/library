@@ -4,14 +4,21 @@ const readStatus = document.querySelector("#status");
 const form = document.querySelector("#form");
 const tableBody = document.querySelector("#tableBody");
 
-// Storage for book objects
-let library = [
+const DEFAULT_DATA = [
   {
-    title: "Ex title",
-    author: "Ex author",
+    title: "Atomic Habits",
+    author: "James Clear",
     readStatus: "Read",
   },
+  {
+    title: "The Compound Effect",
+    author: "Darren Hardy",
+    readStatus: "Not Read",
+  },
 ];
+
+// Storage for book objects
+let library = DEFAULT_DATA;
 
 // Constructor to make new books
 function Book(title, author, readStatus) {
