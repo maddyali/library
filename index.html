@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- fa kit -->
+    <script
+      src="https://kit.fontawesome.com/d089f7aeb6.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>"
+    />
+    <!-- script -->
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- header -->
+      <header>
+        <h1>Book Buddy</h1>
+        <p>
+          A simple Library App where you can add books you have read or plan to
+          read.
+        </p>
+      </header>
+      <!-- main -->
+      <main>
+        <!-- form -->
+        <div class="container-form">
+          <form id="form" action="">
+            <div class="row">
+              <div>
+                <label for="title">Book Title</label>
+                <input
+                  class="u-full-width"
+                  type="text"
+                  id="title"
+                  name="title"
+                />
+              </div>
+              <div>
+                <label for="author">Author</label
+                ><input
+                  class="u-full-width"
+                  type="text"
+                  id="author"
+                  name="author"
+                />
+              </div>
+              <div>
+                <label for="status">Status</label>
+                <select class="u-full-width" name="status" id="status">
+                  <option value="read" selected>Read</option>
+                  <option value="notRead">Not Read</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <button class="btn" id="submitBtn" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+        <!-- table -->
+        <div class="container-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Status</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- <tr>
+                <td>Ex title</td>
+                <td>Ex author</td>
+                <td>
+                  <button class="btn statusBtn" id="statusBtn" type="button">
+                    Read
+                  </button>
+                </td>
+                <td>
+                  <button
+                    class="btn deleteBtn"
+                    id="deleteBtn"
+                    data-bookid="0"
+                    type="button"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </main>
+      <!-- footer -->
+      <footer>
+        <p>
+          An
+          <a href="https://twitter.com/alithetechie" target="_blank"
+            >alithetechie</a
+          >
+          experience.
+          <a href="https://github.com/maddyali" target="_blank">
+            <i class="fa fa-github" aria-hidden="true"></i>
+          </a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
