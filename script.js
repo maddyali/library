@@ -64,7 +64,8 @@ tableBody.addEventListener("click", (e) => {
   if (e.target.textContent === "Delete") {
     const currentTitle =
       e.target.parentNode.parentNode.childNodes[1].textContent;
-    const currentBookId = e.target.attributes[3];
+    const currentBookId = e.target.attributes[2].nodeValue;
+    console.log(currentBookId);
     if (confirm(`Sure you want to delete? ${currentTitle}`)) {
       deleteBook(currentBookId);
     }
