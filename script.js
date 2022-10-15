@@ -20,14 +20,16 @@ const DEFAULT_DATA = [
 // Storage for book objects
 let library = DEFAULT_DATA;
 
-// Constructor to make new books
-function Book(title, author, readStatus) {
-  this.title = title;
-  this.author = author;
-  this.readStatus = readStatus;
-  this.info = function () {
+// Class to make new books
+class Book {
+  constructor(title, author, readStatus) {
+    this.title = title;
+    this.author = author;
+    this.readStatus = readStatus;
+  }
+  info() {
     return `${this.title} by ${this.author}, ${this.readStatus} `;
-  };
+  }
 }
 
 // Take user input & store books in library
